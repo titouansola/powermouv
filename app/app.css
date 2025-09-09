@@ -22,9 +22,29 @@ body {
 }
 
 .pm-btn {
-    @apply bg-bermuda font-semibold md:text-[18px] px-[22px] py-[12px] rounded-lg cursor-pointer transition hover:brightness-105 shadow-lg;
+    @apply bg-bermuda font-semibold md:text-[18px] px-[22px] py-[12px] rounded-lg cursor-pointer transition hover:brightness-105 shadow-lg disabled:cursor-not-allowed disabled:opacity-50;
 }
 
 .checklist::before {
     content: "\2714  ";
+}
+
+.legal-section {
+    @apply pt-10 mb-base-3;
+
+    & > h1 {
+        @apply text-4xl text-center font-bold;
+    }
+
+    & > h2 {
+        @apply text-xl font-bold mt-8;
+    }
+
+    & > h3 {
+        @apply font-bold;
+    }
+
+    & > ul {
+        @apply list-disc;
+    }
 }

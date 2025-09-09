@@ -2,7 +2,7 @@ import { defineType } from 'sanity';
 
 export default defineType({
     name: 'prices',
-    title: 'Formules',
+    title: 'Ateliers',
     type: 'document',
     fields: [
         {
@@ -15,7 +15,7 @@ export default defineType({
             name: 'amount',
             type: 'number',
             title: 'Tarif',
-            validation: (Rule) => Rule.required(),
+            description: 'Facultatif',
         },
         {
             name: 'description',

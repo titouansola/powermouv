@@ -1,4 +1,5 @@
 import clsx from 'classnames';
+import { Link } from 'react-router';
 
 export function Footer() {
     const blockStyle = clsx('flex flex-col gap-10');
@@ -15,13 +16,13 @@ export function Footer() {
                 <div className={blockStyle}>
                     <h2 className={blockTitleStyle}>POWERMOUV</h2>
                     <ul className={blockListStyle}>
-                        <li>06 22 67 60 09</li>
+                        <li>06 34 20 79 46</li>
                         <li>
                             424 rue de Lisbonne
                             <br />
                             La Seyne-sur-Mer
                         </li>
-                        <li>ippsop@gmail.com</li>
+                        <li>contact@powermouv.fr</li>
                     </ul>
                 </div>
                 <div className={blockStyle}>
@@ -45,9 +46,19 @@ export function Footer() {
                 <div className={blockStyle}>
                     <h2 className={blockTitleStyle}>Liens utiles</h2>
                     <ul className={blockListStyle}>
-                        <li>À propos</li>
-                        <li>Mentions légales</li>
-                        <li>Politique de confidentialité</li>
+                        <li>
+                            <Link to={'/contact'}>À propos</Link>
+                        </li>
+                        <li>
+                            <Link to={'/mentions-legales'}>
+                                Mentions légales
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to={'/politique-de-confidentialite'}>
+                                Politique de confidentialité
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>

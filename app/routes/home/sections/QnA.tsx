@@ -1,4 +1,4 @@
-import { Plus } from '~/common/ui/icons/Plus';
+import { Plus } from '~/common/components/icons/Plus';
 import type { QnaModel } from '~/data/models/qna-model';
 import { useLandingPageData } from '~/routes/home/home';
 

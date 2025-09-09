@@ -19,13 +19,13 @@ export function Header() {
                 <Link to={'/'} className={linkStyle}>
                     Accueil
                 </Link>
-                <Link to={'/'} className={linkStyle}>
+                <Link to={'/notre-methode'} className={linkStyle}>
                     Notre méthode
                 </Link>
-                <Link to={'/'} className={linkStyle}>
+                <Link to={'/nos-solutions'} className={linkStyle}>
                     Nos solutions
                 </Link>
-                <Link to={'/'} className={linkStyle}>
+                <Link to={'/nos-experts'} className={linkStyle}>
                     Nos experts
                 </Link>
                 <Link to={'contact'}>

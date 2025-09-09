@@ -1,0 +1,30 @@
+export function Input({
+    type,
+    id,
+    label,
+    error,
+}: {
+    type: 'text' | 'email' | 'telephone';
+    id: string;
+    label: string;
+    error?: { [key: string]: boolean };
+}) {
+    return (
+        <div className={'flex flex-col gap-1 w-full'}>
+            <label htmlFor={id} className={'text-sm text-dark'}>
+                {label}
+            </label>
+            {!!error?.[id] && (
+                <span className={'text-red-500'}>Ce champ est requis !</span>
+            )}
+            <input
+                type={type}
+                id={id}
+                name={id}
+                className={
+                    'border border-gray-300 bg-white px-4 py-2 outline-none'
+                }
+            />
+        </div>
+    );
+}

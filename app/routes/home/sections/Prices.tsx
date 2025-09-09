@@ -1,5 +1,6 @@
 import { PortableText } from '@portabletext/react';
 import clsx from 'classnames/dedupe';
+import { Link } from 'react-router';
 import type { PriceModel } from '~/data/models/price-model';
 import { useLandingPageData } from '~/routes/home/home';
 
@@ -13,7 +14,7 @@ export function Prices() {
                     'font-semibold text-3xl md:text-5xl text-center mb-20'
                 }
             >
-                Nos formules 🚀
+                Nos ateliers
             </h2>
 
             <div className={'grid md:grid-cols-3 gap-5'}>
@@ -41,11 +42,13 @@ function Price({ data }: { data: PriceModel }) {
                         'max-md:hidden absolute -top-4 -translate-y-full font-bold text-lagoon text-xl'
                     }
                 >
-                    Recommandée !
+                    Recommandé !
                 </p>
             )}
             <h3 className={'font-semibold text-xl'}>{data.name}</h3>
-            <p className={'font-semibold text-7xl'}>{data.amount}€</p>
+            {typeof data.amount !== 'undefined' && (
+                <p className={'font-semibold text-7xl'}>{data.amount}€</p>
+            )}
             <div
                 className={clsx(
                     '[&>ul]:list-disc',
@@ -54,6 +57,9 @@ function Price({ data }: { data: PriceModel }) {
             >
                 <PortableText value={data.description} />
             </div>
+            <Link to={'/nos-solutions'} className={'underline cursor-pointer'}>
+                En savoir plus
+            </Link>
         </div>
     );
 }

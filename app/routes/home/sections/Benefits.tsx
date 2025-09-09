@@ -1,6 +1,6 @@
 import clsx from 'classnames';
-import { FinanceSvg } from '~/common/ui/illustrations/FinanceSvg';
-import { MyAppSvg } from '~/common/ui/illustrations/MyAppSvg';
+import { FinanceSvg } from '~/common/components/illustrations/FinanceSvg';
+import { MyAppSvg } from '~/common/components/illustrations/MyAppSvg';
 
 export function Benefits() {
     const blockStyle = clsx('flex items-center gap-20 max-md:flex-col');
@@ -32,7 +32,7 @@ export function Benefits() {
             <div className={blockStyle}>
                 <div className={blockContentStyle}>
                     <h2 className={blockTitleStyle}>
-                        Avantage fiscal en entreprise
+                        Avantages fiscaux et sociaux en entreprise
                     </h2>
                     <p className={blockPStyle}>
                         Les activités physiques proposées en entreprise peuvent
@@ -41,6 +41,14 @@ export function Benefits() {
                         - plafond 2025). Une opportunité pour allier QVCT et
                         fiscalité optimisée.
                     </p>
+                    <a
+                        className={'underline text-lagoon'}
+                        href="https://www.urssaf.fr/accueil/employeur/cotisations/avantages-en-nature.html"
+                        target={'_blank'}
+                        rel="noopener"
+                    >
+                        En savoir plus
+                    </a>
                 </div>
                 <FinanceSvg />
             </div>
