@@ -11,7 +11,7 @@ export function Header() {
             }
         >
             <img
-                src={'powermouv.png'}
+                src={'/powermouv.png'}
                 alt={'Logo POWERMOUV'}
                 className={'h-[25px]'}
             />

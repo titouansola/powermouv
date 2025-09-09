@@ -7,7 +7,7 @@ export function Input({
     type: 'text' | 'email' | 'telephone';
     id: string;
     label: string;
-    error?: { [key: string]: boolean };
+    error?: Record<string, boolean>;
 }) {
     return (
         <div className={'flex flex-col gap-1 w-full'}>
