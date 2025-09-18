@@ -29,7 +29,9 @@ export default function Contact() {
 
             <fetcher.Form method={'POST'}>
                 <div
-                    className={'flex flex-col items-center gap-4 w-1/2 mx-auto'}
+                    className={
+                        'flex flex-col items-center gap-4 md:w-1/2 mx-auto'
+                    }
                 >
                     <Input
                         type={'text'}

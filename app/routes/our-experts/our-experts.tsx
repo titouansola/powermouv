@@ -17,10 +17,18 @@ export default function OurExperts() {
                 <h1 className={'text-4xl text-center font-bold mb-20'}>
                     Rencontrez notre équipe !
                 </h1>
-                <div className={'flex justify-around mb-20'}>
+                <div
+                    className={
+                        'flex max-md:flex-col max-md:gap-8 justify-around mb-20'
+                    }
+                >
                     <People people={people} highlight />
                 </div>
-                <div className={'flex justify-around'}>
+                <div
+                    className={
+                        'flex max-md:flex-col max-md:gap-8 justify-around'
+                    }
+                >
                     <People people={people} />
                 </div>
             </section>
@@ -41,7 +49,7 @@ function People({
             <div
                 key={person._id}
                 className={
-                    'flex flex-col items-center w-[350px] bg-white shadow-xl'
+                    'flex flex-col items-center w-[350px] max-w-full bg-white shadow-xl'
                 }
             >
                 <div className={'relative w-full h-[400px]'}>

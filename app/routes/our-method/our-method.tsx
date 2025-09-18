@@ -11,10 +11,14 @@ export default function OurMethod() {
     return (
         <>
             <section
-                className={'centered-section grid grid-cols-12 gap-10 pt-20'}
+                className={'centered-section md:grid grid-cols-12 gap-10 pt-20'}
             >
                 <div className={'col-span-7'}>
-                    <h1 className={'text-5xl font-bold mb-10'}>
+                    <h1
+                        className={
+                            'text-5xl font-bold mb-10 max-md:text-center'
+                        }
+                    >
                         Méthode inspirée du sport de haut niveau
                     </h1>
                     <div className={'flex flex-col gap-5'}>
@@ -70,8 +74,8 @@ export default function OurMethod() {
                     </div>
                 </div>
                 <img
-                    className={'object-cover h-full col-span-5'}
-                    src={'illustration-our-method.jpg'}
+                    className={'object-cover h-full col-span-5 max-md:hidden'}
+                    src={'/illustration-our-method.jpg'}
                     alt={
                         'Sportive soulevant une barre chargée dans une salle de sport.'
                     }
