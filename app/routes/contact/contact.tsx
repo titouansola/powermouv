@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { data, useFetcher, useLoaderData } from 'react-router';
 import { Input } from '~/common/components/inputs/Input';
-import { sendMail } from '~/common/features/sendMail';
+import { sendMail } from '~/common/features/send-mail';
 import type { Route } from './+types/contact';
 
 export async function loader() {
