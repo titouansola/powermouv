@@ -23,7 +23,6 @@ export function Page({
                         }
                     >
                         {page.title}
-                        Méthode inspirée du sport de haut niveau
                     </h1>
                     <PortableText value={page.content} />
                 </div>
