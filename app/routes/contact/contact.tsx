@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { data, useFetcher, useLoaderData } from 'react-router';
 import { Input } from '~/common/components/inputs/Input';
+import { Textarea } from '~/common/components/inputs/Textarea';
 import { sendMail } from '~/common/features/send-mail';
 import type { Route } from './+types/contact';
 
@@ -12,6 +13,7 @@ export async function loader() {
 
 export default function Contact() {
     const { googleRecaptchaKey } = useLoaderData<typeof loader>();
+    console.log(googleRecaptchaKey);
     const fetcher = useFetcher();
     const [robotChecked, setRobotChecked] = useState(false);
 
@@ -67,6 +69,11 @@ export default function Contact() {
                         type={'telephone'}
                         id={'email'}
                         label={'E-mail professionnel'}
+                        error={fetcher.data?.error}
+                    />
+                    <Textarea
+                        id={'message'}
+                        label={'Message'}
                         error={fetcher.data?.error}
                     />
 
@@ -139,6 +146,7 @@ function validateFormData(formData: FormData) {
     const job = formData.get('job') as string;
     const telephone = formData.get('telephone') as string;
     const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
     const consent = formData.get('consent') as string;
 
     const errors: { [prop: string]: boolean } = {};
@@ -161,6 +169,9 @@ function validateFormData(formData: FormData) {
     if (!email || email.length === 0) {
         errors.email = true;
     }
+    if (!message || message.length === 0) {
+        errors.message = true;
+    }
     if (!consent) {
         errors.consent = true;
     }
@@ -173,6 +184,7 @@ function validateFormData(formData: FormData) {
             job,
             telephone,
             email,
+            message,
             consent: !!consent,
         },
         errors,

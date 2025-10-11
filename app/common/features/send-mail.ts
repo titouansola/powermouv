@@ -7,6 +7,7 @@ type EmailData = {
     job: string;
     telephone: string;
     email: string;
+    message: string;
     consent: boolean;
 };
 
@@ -30,7 +31,7 @@ export async function sendMail(data: EmailData) {
 }
 
 function buildText(data: EmailData) {
-    return `Nouveau message reçu depuis le formulaire de contact powermouv.fr.Prénom ${data.firstname} Nom: ${data.lastname} Société: ${data.company} Fonction: ${data.job} Téléphone: ${data.telephone} E-mail: ${data.email}`;
+    return `Nouveau message reçu depuis le formulaire de contact powermouv.fr.Prénom ${data.firstname} Nom: ${data.lastname} Société: ${data.company} Fonction: ${data.job} Téléphone: ${data.telephone} E-mail: ${data.email} Message: ${data.message}`;
 }
 
 function buildHtml(data: EmailData) {
@@ -47,13 +48,17 @@ function buildHtml(data: EmailData) {
             <b>Société:</b> ${data.company}
         </p>
         <p>
-            <b>Fontion:</b> ${data.job}
+            <b>Fonction:</b> ${data.job}
         </p>
         <p>
             <b>Téléphone:</b> ${data.telephone}
         </p>
         <p>
             <b>E-mail:</b> <a href="mailto:${data.email}">${data.email}</a>
+        </p>
+        <p>
+            <b>Message:</b>
+            ${data.message}
         </p>
     </div>
     `;
