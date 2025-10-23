@@ -40,13 +40,13 @@ export function Page({
 }
 
 function H2({ children }: PropsWithChildren) {
-    return <h2 className={'text-3xl mt-3 mb-2'}>{children}</h2>
+    return <h2 className={'text-3xl mt-6 mb-4'}>{children}</h2>
 }
 
 function H3({ children }: PropsWithChildren) {
-    return <h3 className={'text-2xl my-2'}>{children}</h3>
+    return <h3 className={'text-2xl my-4'}>{children}</h3>
 }
 
 function H4({ children }: PropsWithChildren) {
-    return <h4 className={'text-xl mt-2 mb-1'}>{children}</h4>
+    return <h4 className={'text-xl mt-4 mb-2'}>{children}</h4>
 }
