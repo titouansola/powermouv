@@ -14,23 +14,16 @@ export function Page({
     return (
         <>
             <section
-                className={'centered-section md:grid grid-cols-12 gap-10 pt-20'}
+                className={'centered-section pt-20'}
             >
-                <div className={'col-span-7'}>
-                    <h1
-                        className={
-                            'text-5xl font-bold mb-10 max-md:text-center'
-                        }
-                    >
-                        {page.title}
-                    </h1>
-                    <PortableText value={page.content} />
-                </div>
-                <img
-                    className={'object-cover h-full col-span-5 max-md:hidden'}
-                    src={urlFor(page.image).url()}
-                    alt={page.image.alt}
-                />
+                <h1
+                    className={
+                        'text-5xl font-bold mb-10 max-md:text-center'
+                    }
+                >
+                    {page.title}
+                </h1>
+                <PortableText value={page.content} />
             </section>
             <ArticleList articles={articles} />
         </>
