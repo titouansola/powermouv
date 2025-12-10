@@ -1,8 +1,8 @@
 import { PortableText } from '@portabletext/react';
 import { ArticleList } from '~/common/components/ArticleList';
-import { urlFor } from '~/common/utils/image';
 import type { LightArticleModel } from '~/data/models/article-model';
 import type { PageModel } from '~/data/models/page-model';
+import type {PropsWithChildren} from "react";
 
 export function Page({
     page,
@@ -14,25 +14,39 @@ export function Page({
     return (
         <>
             <section
-                className={'centered-section md:grid grid-cols-12 gap-10 pt-20'}
+                className={'centered-section pt-20'}
             >
-                <div className={'col-span-7'}>
-                    <h1
-                        className={
-                            'text-5xl font-bold mb-10 max-md:text-center'
+                <h1
+                    className={
+                        'text-5xl font-bold mb-10 text-center'
+                    }
+                >
+                    {page.title}
+                </h1>
+                <PortableText
+                    value={page.content}
+                    components={{
+                        block: {
+                            h2: H2,
+                            h3: H3,
+                            h4: H4
                         }
-                    >
-                        {page.title}
-                    </h1>
-                    <PortableText value={page.content} />
-                </div>
-                <img
-                    className={'object-cover h-full col-span-5 max-md:hidden'}
-                    src={urlFor(page.image).url()}
-                    alt={page.image.alt}
+                    }}
                 />
             </section>
             <ArticleList articles={articles} />
         </>
     );
+}
+
+function H2({ children }: PropsWithChildren) {
+    return <h2 className={'text-3xl mt-6 mb-4'}>{children}</h2>
+}
+
+function H3({ children }: PropsWithChildren) {
+    return <h3 className={'text-2xl my-4'}>{children}</h3>
+}
+
+function H4({ children }: PropsWithChildren) {
+    return <h4 className={'text-xl mt-4 mb-2'}>{children}</h4>
 }
