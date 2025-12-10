@@ -1,10 +1,15 @@
 import clsx from 'classnames';
-import { Link } from 'react-router';
+import { Link, useRouteLoaderData } from 'react-router';
 import { Mail } from '~/common/components/icons/Mail';
 import { Phone } from '~/common/components/icons/Phone';
 import { Pin } from '~/common/components/icons/Pin';
+import type { MainLoader } from '~/root';
 
 export function Footer() {
+    const loaderData = useRouteLoaderData<MainLoader>('root');
+
+    if (!loaderData) return null;
+
     const blockStyle = clsx('flex flex-col gap-10');
     const blockTitleStyle = clsx('font-semibold text-xl');
     const blockListStyle = clsx('flex flex-col gap-8');
@@ -22,7 +27,7 @@ export function Footer() {
                     <ul className={blockListStyle}>
                         <li className={blockLineStyle}>
                             <Phone />
-                            06 34 20 79 46
+                            <a href="tel:0634207946">06 34 20 79 46</a>
                         </li>
                         <li className={blockLineStyle}>
                             <Pin />
@@ -34,26 +39,34 @@ export function Footer() {
                         </li>
                         <li className={blockLineStyle}>
                             <Mail />
-                            contact@powermouv.fr
+                            <a href="mailto:contact@powermouv.fr">
+                                contact@powermouv.fr
+                            </a>
                         </li>
                     </ul>
                 </div>
                 <div className={blockStyle}>
                     <h2 className={blockTitleStyle}>Nos réseaux</h2>
                     <ul className={blockListStyle}>
-                        <li>Facebook</li>
-                        <li>YouTube</li>
-                        <li>Instagram</li>
-                        <li>LinkedIn</li>
+                        {loaderData.footer.socials.map((social, i) => (
+                            <li key={i}>
+                                <a href={social.link} target={'_blank'}>
+                                    {social.name}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
                 <div className={blockStyle}>
                     <h2 className={blockTitleStyle}>Nos solutions</h2>
                     <ul className={blockListStyle}>
-                        <li>Solution</li>
-                        <li>Solution</li>
-                        <li>Solution</li>
-                        <li>Solution</li>
+                        {loaderData.footer.solutions.map((solution, i) => (
+                            <li key={i}>
+                                <Link to={`/nos-solutions/${solution.url}`}>
+                                    {solution.title}
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
                 </div>
                 <div className={blockStyle}>
