@@ -5,5 +5,12 @@ export default defineType({
     name: 'solutions',
     title: 'Solutions',
     type: 'document',
-    fields: articleFields,
+    fields: [
+        ...articleFields,
+        {
+            name: 'showOnFooter',
+            title: 'Voir dans le footer',
+            type: 'boolean',
+        },
+    ],
 });

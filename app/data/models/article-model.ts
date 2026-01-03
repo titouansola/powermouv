@@ -1,6 +1,11 @@
 import type { PortableTextBlock } from 'sanity';
 import type { ImageSourceModel } from './image-source-model';
 
+export type ArticleLinkModel = {
+    title: string;
+    url: string;
+};
+
 export type LightArticleModel = {
     _id: string;
     title: string;

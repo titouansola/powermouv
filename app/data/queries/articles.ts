@@ -1,5 +1,6 @@
 import { sanityClient } from '~/data/config/sanity-client';
 import type {
+    ArticleLinkModel,
     ArticleModel,
     LightArticleModel,
 } from '~/data/models/article-model';
@@ -19,4 +20,14 @@ export async function getArticleBySlug(type: string, slug: string) {
     return sanityClient.fetch<ArticleModel>(
         `*[_type == '${type}' && slug.current=='${slug}'][0]`,
     );
+}
+
+export async function getFooterSolutions() {
+    return sanityClient.fetch<ArticleLinkModel[]>(`
+        *[_type == 'solutions' && showOnFooter]
+        {
+            'url': slug.current,
+            title
+        }
+    `);
 }
