@@ -1,8 +1,8 @@
-import { PortableText } from '@portabletext/react';
-import { useLoaderData } from 'react-router';
-import { urlFor } from '~/common/utils/image';
-import type { PeopleModel } from '~/data/models/people-model';
-import { getPeople } from '~/data/queries/people';
+import {useLoaderData} from 'react-router';
+import {urlFor} from '~/common/utils/image';
+import type {PeopleModel} from '~/data/models/people-model';
+import {getPeople} from '~/data/queries/people';
+import {CustomPortableText} from "~/common/components/portable-text/CustomPortableText";
 
 export async function loader() {
     return getPeople();
@@ -80,7 +80,7 @@ function People({
                     </div>
                 </div>
                 <div className={'mt-6 p-8 text-dark text-sm'}>
-                    <PortableText value={person.description} />
+                    <CustomPortableText value={person.description} />
                 </div>
             </div>
         ));
