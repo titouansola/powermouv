@@ -27,7 +27,7 @@ export function Footer() {
                     <ul className={blockListStyle}>
                         <li className={blockLineStyle}>
                             <Phone />
-                            <a href="tel:0634207946">06 34 20 79 46</a>
+                            <a href="tel:0622676009">06 22 67 60 09</a>
                         </li>
                         <li className={blockLineStyle}>
                             <Pin />
