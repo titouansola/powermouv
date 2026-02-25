@@ -1,8 +1,8 @@
-import { PortableText } from '@portabletext/react';
 import clsx from 'classnames/dedupe';
 import { Link } from 'react-router';
 import type { PriceModel } from '~/data/models/price-model';
 import { useLandingPageData } from '~/routes/home/home';
+import {CustomPortableText} from "~/common/components/portable-text/CustomPortableText";
 
 export function Prices() {
     const { prices } = useLandingPageData();
@@ -55,7 +55,7 @@ function Price({ data }: { data: PriceModel }) {
                     !data.recommended && 'text-dark',
                 )}
             >
-                <PortableText value={data.description} />
+                <CustomPortableText value={data.description} />
             </div>
             <Link to={'/nos-solutions'} className={'underline cursor-pointer'}>
                 En savoir plus

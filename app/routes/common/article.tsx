@@ -1,7 +1,7 @@
-import { PortableText } from '@portabletext/react';
 import { type LoaderFunctionArgs, redirect, useLoaderData } from 'react-router';
 import { urlFor } from '~/common/utils/image';
 import { getArticleBySlug } from '~/data/queries/articles';
+import {CustomPortableText} from "~/common/components/portable-text/CustomPortableText";
 
 function getContent(url: string, slug: string) {
     if (url.match('notre-methode')) {
@@ -45,7 +45,7 @@ export default function Article() {
                 </h1>
             </div>
             <div className={'centered-section'}>
-                <PortableText value={article.content} />
+                <CustomPortableText value={article.content} />
             </div>
         </section>
     );

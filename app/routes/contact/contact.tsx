@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
 import { data, useFetcher, useLoaderData } from 'react-router';
 import { Input } from '~/common/components/inputs/Input';
 import { Textarea } from '~/common/components/inputs/Textarea';
 import { sendMail } from '~/common/features/send-mail';
 import type { Route } from './+types/contact';
+import { Recaptcha } from './components/Recaptcha';
 
 export async function loader() {
     const googleRecaptchaKey = import.meta.env.VITE_GOOGLE_RECAPTCHA_KEY;
@@ -13,7 +13,7 @@ export async function loader() {
 
 export default function Contact() {
     const { googleRecaptchaKey } = useLoaderData<typeof loader>();
-    console.log(googleRecaptchaKey);
+
     const fetcher = useFetcher();
     const [robotChecked, setRobotChecked] = useState(false);
 
@@ -107,10 +107,13 @@ export default function Contact() {
                 >
                     {!submitted ? (
                         <>
-                            <ReCAPTCHA
-                                sitekey={googleRecaptchaKey}
-                                onChange={(token) => setRobotChecked(!!token)}
-                            />
+                            {
+                                !!googleRecaptchaKey &&
+                                <Recaptcha
+                                    googleRecaptchaKey={googleRecaptchaKey}
+                                    onChange={(token) => setRobotChecked(!!token)}
+                                />
+                            }
                             <button
                                 className={'pm-btn'}
                                 type={'submit'}
